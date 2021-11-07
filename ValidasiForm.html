@@ -15,32 +15,52 @@
         <table>
             <tr>
                 <td>Username</td>
-                <td><input type="text" name="username" id="username" placeholder="Username" size="30"></td>
+                <td><input  title="Minimal 3 karakter mengandung huruf kecil saja, maksimal 15 karakter!"
+                            type="text" name="username" id="username" placeholder="Username" size="30" 
+                            required pattern="^[a-z0-9_-]{3,15}$" 
+                            onchange="this.setCustomValidity(this.validity.patternMismatch? this.title : '');">
+                </td>
             </tr>
             
             <tr>
                 <td>Password</td>
-                <td><input type="password" name="password" id="pass" placeholder="Password" size="30"></td>
+                <td><input  title="Minimal 4 digit mengandung kombinasi huruf besar, kecil, simbol dan angka!" 
+                            type="password" name="password" id="pass" placeholder="Password" size="30" 
+                            required pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*-_=+]).{4,}$" 
+                            onchange="this.setCustomValidity(this.validity.patternMismatch? this.title : '');">
+                </td>
             </tr>
             
             <tr>
                 <td>Ulangi Password</td>
-                <td><input type="password" name="repeat" id="repeat" placeholder="Ulangi Password" size="30"></td>
+                <td>
+                    <input  title="Harus sama dengan password yang diinputkan sebelumnya!"
+                            type="password" name="repeat" id="repeat" placeholder="Ulangi Password" size="30"
+                            required pattern="(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*-_=+]).{4,}$"
+                            onchange="this.setCustomValidity(this.validity.patternMismatch? this.title : '');">
+                </td>
             </tr>
             
             <tr>
                 <td>Email</td>
-                <td><input type="text" name="email" id="email" placeholder="Email" size="30"></td>
+                <td><input  title="Harap sesuaikan dengan format email!"
+                            type="text" name="email" id="email" placeholder="Email" size="30" 
+                            required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                            onchange="this.setCustomValidity(this.validity.patternMismatch? this.title : '');">
+                </td>
             </tr>
             
             <tr>
                 <td>Nomor Telpon</td>
-                <td><input type="text" name="telp" id="telp" placeholder="Nomor Telpon" size="30"></td>
+                <td><input  title="Harap masukkan angka, terdiri dari 10-12 saja!"
+                            type="text" name="telp" id="telp" placeholder="Nomor Telpon" size="30"
+                            required pattern="^(?=.*[0-9]).{10,12}$"
+                            onchange="this.setCustomValidity(this.validity.patternMismatch? this.title : '');"></td>
             </tr>
             
             <tr>
                 <td>Alamat</td>
-                <td><textarea id="alamat" style="width: 230px;">Alamat</textarea></td>
+                <td><textarea id="alamat" style="width: 230px;" required></textarea><br></td>
             </tr>
             
             <tr>
